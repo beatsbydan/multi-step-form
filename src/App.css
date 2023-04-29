@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
+:root{
+    /* ## COLORS */
+    /* ### Primary */
+    --Marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Purplish-blue-border: hsl(243, 55%, 40%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    --Strawberry-red: hsl(354, 84%, 57%);
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    /* ### Neutral */
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Light-gray-toggle-bar: hsla(229, 24%, 87%, 0.18);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+
+    /*FONT-SIZES*/
+    --fs-h1:1.4rem;
+    --fs-p:0.9rem;
+    --fs-sb:0.8rem;
+    --fs-form:1rem;
+    --fs-error:0.8rem;
+    --fs-button:0.8rem;
+    --fs-small:0.7rem;
+    --fs-label:0.85rem;
+
+    /*FONT-WEIGHTS*/
+    --fw-400:400;
+    --fw-500:500;
+    --fw-700:700;
+
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    background-color:var(--Magnolia) ;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.block{
+    width: 90%;
+    height: 500px;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+    padding: 1em;
+    background-color: var(--White);
+    box-shadow: 2px 4px 8px var(--Light-gray);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 60%;
+    gap: 10%;
 }
-
-.App-link {
-  color: #61dafb;
+.formPage{
+    max-width: 400px;
+    position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formPage h1{
+    margin-top: 1em;
+    color: var(--Marine-blue);
+}
+.desc{
+    margin-top: 0.8em;
+    color: var(--Cool-gray);
+}
+p{
+    font-size: var(--fs-p);
+}
+.formButtons{
+    position: absolute;
+    bottom: 2em;
+    width: 100%;
+    max-width: 400px;
+}
+.formButtons--mobile{
+    display: none;
+}
+.next{
+    float: right;
+    padding: 11px 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-weight: var(--fw-500);
+    background-color: var(--Marine-blue);
+}
+.next:hover{
+    opacity: 0.9;
+}
+.next{
+    text-decoration: none;
+    color: white;
+}
+.prev{
+    padding: 11px 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.prev{
+    text-decoration: none;
+    font-weight: var(--fw-500);
+    color: var(--Cool-gray);
+}
+.prev:hover{
+    color: var(--Marine-blue);
+}
+@media screen and (max-width:600px) {
+ .block{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: unset;
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+    padding: unset;
+    background-color: transparent;
+    border-radius: unset;
+    box-shadow: unset;
+ }
+ .formPage{
+    width: 90%;
+    max-width: unset;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    top: -60px;
+    padding: 1em 5% 2em 5%;
+    box-shadow: 0px 4px 8px var(--Light-gray);
+    border-radius: 10px;
+    background-color: var(--White);
+ }   
+ .formButtons{
+    display: none;
+ }
+ .formButtons--mobile{
+    display: block;
+    background-color: var(--White);
+    padding: 1.2em 5%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+ }
+ .formPage h1{
+    margin-top: 0.5em;
+ }
 }

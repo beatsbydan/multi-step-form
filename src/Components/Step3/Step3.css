@@ -1,0 +1,6 @@
+.body_three{
+    display: flex;
+    flex-direction: column;
+    gap:0.8em;
+    margin-top: 2em;
+}

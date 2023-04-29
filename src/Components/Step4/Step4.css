@@ -1,0 +1,54 @@
+.boxReport{
+    background-color: var(--Magnolia);
+    padding: 1.2em;
+    border-radius: 5px;
+}
+.body_four{
+    margin-top: 2em;
+}
+.plan{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.1em;
+    border-bottom: 1.35px solid var(--Light-gray);
+}
+h4{
+    color: var(--Marine-blue);
+}
+.plan .left h4{
+    margin-bottom: 0.6em;
+}
+.plan a{
+    color: var(--Cool-gray);
+    font-size: var(--fs-p);
+}
+.confirm{
+    background-color: var(--Purplish-blue);
+}
+.confirm:hover{
+    opacity: 0.7;
+}
+.addOnTitle, .totalSpec{
+    color: var(--Cool-gray);
+}
+.total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    margin-top: 1.2em;
+}
+.addOnPrice{
+    color: var(--Marine-blue);
+}
+.totalPrice{
+    color: var(--Purplish-blue);
+}
+.specAddOns{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}

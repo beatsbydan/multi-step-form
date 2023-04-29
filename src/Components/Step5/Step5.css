@@ -1,0 +1,29 @@
+.body_5{
+    width: 100%;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-align: center;
+}
+.body_5 img{
+    width: 60px;
+}
+.body_5 h1{
+    margin-bottom: 0.4em;
+}
+.body_5 p{
+    line-height: 1.5em;
+    color: var(--Cool-gray);
+    word-wrap: break-word;
+}
+@media screen and (max-width:600px) {
+    .body_5{
+        top: unset;
+        left: unset;
+        position: unset;
+        transform: unset;
+        padding: 5em 5% 3em 5%;
+    }
+}
