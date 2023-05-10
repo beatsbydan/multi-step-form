@@ -2,19 +2,6 @@ import NavSideBar from "../NavSideBar/NavSideBar";
 import './Step1.css'
 import { useState } from "react";
 const Step1 = (props) => {
-    const [formDetails, setFormDetails] = useState({
-        name: "",
-        email: "",
-        phone: ""
-    })
-    const handleChange = (e) => {
-        const {name, value} = e.target
-        setFormDetails(prev=>{
-            return(
-                {...prev, [name]: value}
-            )
-        })
-    }
     const [errors, setErrors] = useState({})
     const validateEntries = (entry) => {
         const errors = {}
@@ -32,17 +19,13 @@ const Step1 = (props) => {
         }
         return errors;
     }
-    const nextStep = () => {
-        props.onSubmit(formDetails)
-        props.setPage(props.page + 1)
-    }
     const handleSubmit = () =>{
-        setErrors(validateEntries(formDetails))
-        let entries = Object.values(formDetails)
+        setErrors(validateEntries(props.formDetails))
+        let entries = Object.values(props.formDetails)
         if(entries.every(entry=>{
             return entry!==""
         })){
-            nextStep()
+            props.nextStep(props.page)
         }
     }
     return ( 
@@ -60,10 +43,10 @@ const Step1 = (props) => {
                         <input
                         className={`${errors.name ? 'invalid': ''}`}
                         type="text" 
-                        value={formDetails.name}
+                        value={props.formDetails.name}
                         name="name" 
                         placeholder=" e.g Stephen King" 
-                        onChange={(e)=>handleChange(e)} />
+                        onChange={props.onChange} />
                     </div>
                     <div className="formInput">
                         <label htmlFor="Email Address">
@@ -73,10 +56,10 @@ const Step1 = (props) => {
                         <input
                         className={`${errors.email ? 'invalid': ''}`}
                         type="email" 
-                        value={formDetails.email}
+                        value={props.formDetails.email}
                         name="email" 
                         placeholder="e.g stephenking@lorem.com" 
-                        onChange={(e)=>handleChange(e)} />
+                        onChange={props.onChange} />
                     </div>
                     <div className="formInput">
                         <label htmlFor="Phone Number">
@@ -86,10 +69,10 @@ const Step1 = (props) => {
                         <input
                         className={`${errors.phone ? 'invalid': ''}`}
                         type="tel"
-                        value={formDetails.phone} 
+                        value={props.formDetails.phone} 
                         name="phone" 
                         placeholder="e.g. +1 234 567 890" 
-                        onChange={(e)=>handleChange(e)} />
+                        onChange={props.onChange} />
                     </div>
                 </div>
                 <div className="formButtons">

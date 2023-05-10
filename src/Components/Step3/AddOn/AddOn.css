@@ -29,6 +29,7 @@ input[type=checkbox]{
     color: var(--Cool-gray);
     margin-top:0.1em;
 }
-.right p{
+.right small{
+    font-size: 0.8rem;
     color: var(--Purplish-blue);
 }

@@ -1,0 +1,44 @@
+
+.box{
+    border: 0.084em solid var(--Light-gray);
+    border-radius: 4px;
+    padding: 0.7em;
+    display: flex;
+    flex-direction: column;
+    gap: 2.6em;
+    cursor: pointer;
+}
+.box img{
+    width: 30px;
+}
+.box.chosen{
+    border-color: var(--Purplish-blue-border);   
+}
+.box p{
+    color: var(--Marine-blue);
+    font-size: var(--fs-p);
+    font-weight: var(--fw-700);
+    margin-bottom: 0.2em;
+}
+.price{
+    color: var(--Cool-gray);
+    font-size: 0.8rem;
+}
+.yearlyTxt{
+    font-size: 0.73rem;
+    display: block;
+    padding-top: 0.4rem;
+    color: var(--Marine-blue);
+}
+@media screen and (max-width:600px) {
+    .box{
+        flex-direction: row;
+        gap: 4%;
+        padding: 0.7em 5%;
+    }
+}
+@media(hover: hover){
+    .box:hover{
+        border-color: var(--Purplish-blue-border);
+    }
+}

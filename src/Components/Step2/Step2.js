@@ -1,70 +1,75 @@
 import NavSideBar from "../NavSideBar/NavSideBar";
 import './Step2.css'
-import arcImg from '../../assets/images/icon-arcade.svg'
-import advImg from '../../assets/images/icon-advanced.svg'
-import proImg from '../../assets/images/icon-pro.svg'
-import { useState } from "react";
-const Step2 = ({page, setPage}) => {
-    const [duration, setDuration] = useState('monthly')
-    const handleMonthlyPeriodChange = () => {
-            setDuration('monthly')
-    }
-    const handleYearlyPeriodChange = () => {
-            setDuration('yearly')
-    }
-    const handleClick = (e) => {
-        
-        // e.target.style.borderColor = activeCol;
-    }
+import { useContext } from "react";
+import Package from "./Package/Package";
+import Packages from "./Packages";
+import PackageContext from "../../PackageContext/PackageContext";
+
+const Step2 = (props) => {
+    const ctx = useContext(PackageContext)
     return ( 
         <div className="block">
-            <NavSideBar page={page}/>
+            <NavSideBar page={props.page}/>
             <div className="formPage">
                 <h1>Select your plan</h1>
                 <p className="desc">You have the option of monthly or yearly billing.</p>
-                <div className="formBody body_two">
-                    <div onClick={handleClick} className="arcade box">
-                        <img src={arcImg} alt="" />
-                        <div className="planDetails">
-                            <p className="name">Arcade</p>
-                            <small className="price">{duration === 'monthly' ? '$9/mo' : '$90/yr'}</small>
-                            {duration === 'yearly' &&<small className="yearlyTxt">2 months free</small>}
-                        </div>
-                    </div>
-                    <div onClick={handleClick} className="advanced box">
-                        <img src={advImg} alt="" />
-                        <div className="planDetails">
-                            <p className="name">Advanced</p>
-                            <small className="price">{duration === 'monthly' ? '$12/mo' : '120/yr'}</small>
-                            {duration === 'yearly' &&<small className="yearlyTxt">2 months free</small>}
-                        </div>
-                    </div>
-                    <div onClick={handleClick} className="pro box">
-                        <img src={proImg} alt="" />
-                        <div className="planDetails">
-                            <p className="name">Pro</p>
-                            <small className="price">{duration === 'monthly' ? '$15/mo' : '$150/yr'}</small>
-                            {duration === 'yearly' && <small className="yearlyTxt">2 months free</small>}
-                        </div>
-                    </div>
-                </div>
+                <ul className="formBody body_two">
+                    {Packages.map(item => {
+                        return(
+                            <Package
+                                currentIndex = {ctx.currentIndex}
+                                id={item.id}
+                                key={item.id}
+                                package={item.package}
+                                onClick={ctx.selectPackage}
+                                img={item.img}
+                                name={item.name}
+                                duration={ctx.duration}
+                                perDuration = {ctx.duration === 'monthly' ? item.perMonth : item.perYear}
+                                discount={item.discount}
+                            />
+                        )
+                    })}
+                </ul>
                 <div className="planType">
                     <div className="planBox">
-                        <p className={`pick ${duration === 'monthly' ? 'perMonth': ''}`} onClick={handleMonthlyPeriodChange}>Monthly</p>
+                        <p className={`pick ${ctx.duration === 'monthly' ? 'perMonth': ''}`} onClick={ctx.setMonthlyPeriod}>Monthly</p>
                         <div className="barToggle">
-                            <div className={`circle ${duration === 'monthly' ? 'monthly' : 'yearly'}`}></div>
+                            <div className={`circle ${ctx.duration === 'monthly' ? 'monthly' : 'yearly'}`}></div>
                         </div>
-                        <p className={`pick ${duration === 'yearly' ? 'perYear': ''}`} onClick={handleYearlyPeriodChange}>Yearly</p>
+                        <p className={`pick ${ctx.duration === 'yearly' ? 'perYear': ''}`} onClick={ctx.setYearlyPeriod}>Yearly</p>
                     </div>
                 </div>
                 <div className="formButtons">
-                    <button onClick={()=>setPage(1)} className="prev">Go Back</button>
-                    <button onClick={()=>setPage(3)} className="next">Next Step</button>
+                    <button 
+                        onClick={()=>props.prevStep(props.page)} 
+                        className="prev"
+                    >
+                        Go Back
+                    </button>
+                    <button 
+                        onClick={()=>props.nextStep(props.page)} 
+                        disabled={ctx.package === ""} 
+                        className="next"
+                    >
+                            Next Step
+                    </button>
                 </div>
             </div>
             <div className="formButtons--mobile">
-                <button onClick={()=>setPage(1)} className="prev">Go Back</button>
-                <button onClick={()=>setPage(3)} className="next">Next Step</button>
+                <button 
+                    onClick={()=>props.prevStep(props.page)} 
+                    className="prev"
+                >
+                    Go Back
+                </button>
+                <button 
+                    onClick={()=>props.nextStep(props.page)} 
+                    disabled={ctx.package === ""} 
+                    className="next"
+                >
+                        Next Step
+                </button>
             </div>
         </div>
      );

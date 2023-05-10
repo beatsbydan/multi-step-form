@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import PackageContext from "../../PackageContext/PackageContext";
 import NavSideBar from "../NavSideBar/NavSideBar";
 import './Step4.css'
-const Step4 = ({page, setPage}) => {
+const Step4 = (props) => {
+    const ctx = useContext(PackageContext)
      return ( 
         <div className="block">
-            <NavSideBar page={page}/>
+            <NavSideBar page={props.page}/>
             <div className="formPage">
                 <h1>Finishing up</h1>
                 <p className="desc">Double-check everything looks OK before confirming.</p>
@@ -11,32 +14,56 @@ const Step4 = ({page, setPage}) => {
                     <div className="boxReport">
                         <div className="plan">
                             <div className="left">
-                                <h4>()</h4>
-                                <a href="">Change</a>
+                                <h4>{ctx.package} ({ctx.duration === 'monthly' ? 'Monthly' : 'Yearly'})</h4>
+                                <button onClick={props.changePackage} type="button" className="changeBtn">Change</button>
                             </div>
-                            <h4></h4>
+                            <h4>{ctx.duration === 'yearly' ? `$${ctx.pricePerDuration}/yr` : `$${ctx.pricePerDuration}/mo`}</h4>
                         </div>
-                        <div className="specAddOns">
-                            {/**Array of add ons would be mapped here */}
-                            <div className="addOn">
-                                <p className="addOnTitle"></p>
-                                <p className="addOnPrice"></p>
-                            </div>
-                        </div>
+                        <ul className="specAddOns">
+                            {ctx.addOns.map(addon=>{
+                                return(
+                                    <div key={addon.title} className="addOn">
+                                        <li className="addOnTitle">{addon.title}</li>
+                                        <li className="addOnPrice">{ctx.duration === 'monthly' ? `$${addon.pricePerDuration}/mo` : `$${addon.pricePerDuration}/yr`}</li>
+                                    </div>
+                                )
+
+                            })}                            
+                        </ul>
                     </div>
                     <div className="total">
-                        <p className="totalSpec">()</p>
-                        <h3 className="totalPrice"></h3>
+                        <p className="totalSpec">Total (per {ctx.duration==='monthly' ? 'month' : 'year'})</p>
+                        <h3 className="totalPrice">${ctx.totalAmount}/{ctx.duration==='monthly' ? 'mo' : 'yr'}</h3>
                     </div>
                 </div>
                 <div className="formButtons">
-                    <button onClick={()=>setPage(3)} className="prev">Go Back</button>
-                    <button onClick={()=>setPage(5)} className="next confirm">Confifrm</button>
+                    <button 
+                        onClick={()=>props.prevStep(props.page)} 
+                        className="prev"
+                    >
+                            Go Back
+                        </button>
+                    <button 
+                        onClick={()=>props.onSubmit(props.page)} 
+                        className="next confirm"
+                    >
+                            Confifrm
+                    </button>
                 </div>
             </div>
             <div className="formButtons--mobile">
-                <button onClick={()=>setPage(3)} className="prev">Go Back</button>
-                <button onClick={()=>setPage(5)} className="next confirm">Confirm</button>
+                <button 
+                    onClick={()=>props.prevStep(props.page)} 
+                    className="prev"
+                >
+                        Go Back
+                    </button>
+                <button 
+                    onClick={()=>props.onSubmit(props.page)} 
+                    className="next confirm"
+                >
+                        Confifrm
+                </button>
             </div>
         </div>
      );

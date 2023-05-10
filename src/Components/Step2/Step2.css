@@ -5,34 +5,6 @@
     gap: 5%;
     margin-top: 2em;
 }
-.box{
-    border: 0.084em solid var(--Light-gray);
-    border-radius: 4px;
-    padding: 0.7em;
-    display: flex;
-    flex-direction: column;
-    gap: 2.6em;
-    cursor: pointer;
-}
-.box:hover{
-    border-color: var(--Purplish-blue-border);
-}
-.box.chosen{
-    border-color: var(--Purplish-blue-border);
-}
-.box img{
-    width: 30px;
-}
-.box p{
-    color: var(--Marine-blue);
-    font-size: var(--fs-p);
-    font-weight: var(--fw-700);
-    margin-bottom: 0.2em;
-}
-.price{
-    color: var(--Cool-gray);
-    font-size: 0.8rem;
-}
 .planBox p{
     color: var(--Cool-gray);
     font-size: 0.85rem;
@@ -80,17 +52,17 @@
 .pick.perYear{
     color: var(--Marine-blue);
 }
-.yearlyTxt{
-    font-size: 0.73rem;
-    display: block;
-    padding-top: 0.4rem;
-    color: var(--Marine-blue);
-}
 .circle.monthly{
     left: 25%;
 }
 .circle.yearly{
     left: 75%;
+}
+ul{
+    list-style: none;
+}
+.box.chosen{
+    border-color: var(--Purplish-blue-border);
 }
 @media screen and (max-width:600px) {
     .body_two{
@@ -98,10 +70,5 @@
         gap:8px;
         flex-direction: column;
         margin-top: 1em;
-    }
-    .box{
-        flex-direction: row;
-        gap: 4%;
-        padding: 0.7em 5%;
     }
 }

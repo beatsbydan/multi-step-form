@@ -1,10 +1,16 @@
 .boxReport{
-    background-color: var(--Magnolia);
+    background-color: var(--Magnolia-bg);
     padding: 1.2em;
     border-radius: 5px;
 }
 .body_four{
     margin-top: 2em;
+}
+.addOn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .plan{
     display: flex;
@@ -18,11 +24,7 @@ h4{
     color: var(--Marine-blue);
 }
 .plan .left h4{
-    margin-bottom: 0.6em;
-}
-.plan a{
-    color: var(--Cool-gray);
-    font-size: var(--fs-p);
+    margin-bottom: 0.2em;
 }
 .confirm{
     background-color: var(--Purplish-blue);
@@ -32,6 +34,9 @@ h4{
 }
 .addOnTitle, .totalSpec{
     color: var(--Cool-gray);
+}
+.addOnTitle, .addOnPrice{
+    font-size: 0.8rem;
 }
 .total{
     display: flex;
@@ -50,5 +55,14 @@ h4{
 .specAddOns{
     display: flex;
     flex-direction: column;
-    gap: 1.2em;
+    margin-top: 0.8em;
+    gap: 0.8em;
+}
+.changeBtn{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    color: var(--Cool-gray);
+    font-size: var(--fs-p);
 }
