@@ -79,6 +79,9 @@ const Step1 = (props) => {
                     <button className="next"  type="button" onClick={handleSubmit}>Next Step</button>
                 </div>
             </div>
+            <div className="formButtons--mobile">
+                <button className="next" type="button" onClick={handleSubmit}>Next Step</button>
+            </div>
         </div>
      );
 }

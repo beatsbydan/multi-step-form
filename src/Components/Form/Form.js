@@ -91,61 +91,6 @@ const Form = () => {
         <form action="" id="form" className="myForm">
             <div className="formBody">
                 {getPage()}
-                {page === 1 && 
-                    <div className="formButtons--mobile">
-                        <button className="next" type="button" onClick={handleSubmit}>Next Step</button>
-                    </div>
-                }
-                {page === 2 && 
-                    <div className="formButtons--mobile">
-                        <button 
-                            onClick={()=>prevStep(page)} 
-                            className="prev"
-                        >
-                            Go Back
-                        </button>
-                        <button 
-                            onClick={()=>nextStep(page)} 
-                            disabled={ctx.package === ""} 
-                            className="next"
-                        >
-                                Next Step
-                        </button>
-                    </div>
-                }
-                {page === 3 &&
-                    <div className="formButtons--mobile">
-                        <button 
-                            onClick={()=>prevStep(page)} 
-                            className="prev"
-                        >
-                                Go Back
-                        </button>
-                        <button 
-                            onClick={()=>nextStep(page)} 
-                            disabled = {ctx.addOns.length === 0} 
-                            className="next"
-                        >
-                                Next Step
-                        </button>
-                    </div>
-                }
-                {page === 4 && 
-                    <div className="formButtons--mobile">
-                        <button 
-                            onClick={()=>prevStep(page)} 
-                            className="prev"
-                        >
-                                Go Back
-                            </button>
-                        <button 
-                            onClick={()=>nextStep(page)} 
-                            className="next confirm"
-                        >
-                                Confirm
-                        </button>
-                    </div>
-                }
             </div>
         </form>
     );

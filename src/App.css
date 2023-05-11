@@ -81,11 +81,56 @@ body{
 p{
     font-size: var(--fs-p);
 }
+.formButtons--mobile{
+    display: none;
+}
 .formButtons{
     position: absolute;
     bottom: 2em;
     width: 100%;
     max-width: 400px;
+}
+.next{
+    float: right;
+    padding: 11px 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-weight: var(--fw-500);
+    background-color: var(--Marine-blue);
+}
+.next:disabled{
+    opacity: 0.6;
+}
+.next{
+    text-decoration: none;
+    color: white;
+}
+.prev{
+    padding: 11px 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.prev{
+    text-decoration: none;
+    font-weight: var(--fw-500);
+    color: var(--Cool-gray);
+}
+.confirm{
+    background-color: var(--Purplish-blue);
+}
+@media (hover: hover) {
+    .next:hover{
+        opacity: 0.9;
+    }
+    .next:disabled:hover{
+        opacity: 0.6;
+    } 
+    .prev:hover{
+        color: var(--Marine-blue);
+    }
 }
 @media screen and (max-width:600px) {
  .block{
@@ -113,7 +158,15 @@ p{
     box-shadow: 0px 4px 8px var(--Light-gray);
     border-radius: 10px;
     background-color: var(--White);
- }   
+ }  
+ .formButtons--mobile{
+    display: block;
+    background-color: var(--White);
+    padding: 1.2em 5%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} 
  .formButtons{
     display: none;
  }
@@ -122,3 +175,4 @@ p{
     margin-top: 0.5em;
  }
 }
+

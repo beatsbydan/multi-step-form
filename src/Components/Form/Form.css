@@ -3,63 +3,11 @@
     position: relative;
     height: 100vh;
 }
-.formButtons--mobile{
-    display: none;
-}
 .formBody{
     width: 100%;
 }
-.next{
-    float: right;
-    padding: 11px 5%;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    font-weight: var(--fw-500);
-    background-color: var(--Marine-blue);
-}
-.next:disabled{
-    opacity: 0.6;
-}
-.next{
-    text-decoration: none;
-    color: white;
-}
-.prev{
-    padding: 11px 5%;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-.prev{
-    text-decoration: none;
-    font-weight: var(--fw-500);
-    color: var(--Cool-gray);
-}
-.confirm{
-    background-color: var(--Purplish-blue);
-}
+
 @media screen and (max-width:600px) {
-    .formButtons--mobile{
-        display: block;
-        background-color: var(--White);
-        padding: 1.2em 5%;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-    @media (hover: hover) {
-        .next:hover{
-            opacity: 0.9;
-        }
-        .next:disabled:hover{
-            opacity: 0.6;
-        } 
-        .prev:hover{
-            color: var(--Marine-blue);
-        }
-    }
     .formBody{
         position: relative;
     }
