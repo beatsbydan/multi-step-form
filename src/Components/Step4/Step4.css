@@ -26,9 +26,6 @@ h4{
 .plan .left h4{
     margin-bottom: 0.2em;
 }
-.confirm{
-    background-color: var(--Purplish-blue);
-}
 .confirm:hover{
     opacity: 0.7;
 }

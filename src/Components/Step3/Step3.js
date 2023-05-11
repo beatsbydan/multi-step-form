@@ -43,21 +43,6 @@ const Step3 = (props) => {
                     </button>
                 </div>
             </div>
-            <div className="formButtons--mobile">
-                <button 
-                    onClick={()=>props.prevStep(props.page)} 
-                    className="prev"
-                >
-                        Go Back
-                </button>
-                <button 
-                    onClick={()=>props.nextStep(props.page)} 
-                    disabled = {ctx.addOns.length === 0} 
-                    className="next"
-                >
-                        Next Step
-                </button>
-            </div>
         </div>
      );
 }

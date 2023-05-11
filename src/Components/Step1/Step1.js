@@ -76,11 +76,8 @@ const Step1 = (props) => {
                     </div>
                 </div>
                 <div className="formButtons">
-                    <button className="next"  type="submit" onClick={handleSubmit}>Next Step</button>
+                    <button className="next"  type="button" onClick={handleSubmit}>Next Step</button>
                 </div>
-            </div>
-            <div className="formButtons--mobile">
-                <button className="next" type="submit" onClick={handleSubmit}>Next Step</button>
             </div>
         </div>
      );

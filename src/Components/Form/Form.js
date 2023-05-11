@@ -5,10 +5,11 @@ import Step2 from "../Step2/Step2";
 import Step3 from "../Step3/Step3";
 import Step4 from "../Step4/Step4";
 import Step5 from "../Step5/Step5";
+import './Form.css'
 
 const Form = () => {
     const ctx = useContext(PackageContext)
-    const [page,setPage] = useState(1)
+    const [page,setPage] = useState(2)
     const [formInputData, setFormInputData] = useState({
         name: "",
         email: "",
@@ -90,6 +91,61 @@ const Form = () => {
         <form action="" id="form" className="myForm">
             <div className="formBody">
                 {getPage()}
+                {page === 1 && 
+                    <div className="formButtons--mobile">
+                        <button className="next" type="button" onClick={handleSubmit}>Next Step</button>
+                    </div>
+                }
+                {page === 2 && 
+                    <div className="formButtons--mobile">
+                        <button 
+                            onClick={()=>prevStep(page)} 
+                            className="prev"
+                        >
+                            Go Back
+                        </button>
+                        <button 
+                            onClick={()=>nextStep(page)} 
+                            disabled={ctx.package === ""} 
+                            className="next"
+                        >
+                                Next Step
+                        </button>
+                    </div>
+                }
+                {page === 3 &&
+                    <div className="formButtons--mobile">
+                        <button 
+                            onClick={()=>prevStep(page)} 
+                            className="prev"
+                        >
+                                Go Back
+                        </button>
+                        <button 
+                            onClick={()=>nextStep(page)} 
+                            disabled = {ctx.addOns.length === 0} 
+                            className="next"
+                        >
+                                Next Step
+                        </button>
+                    </div>
+                }
+                {page === 4 && 
+                    <div className="formButtons--mobile">
+                        <button 
+                            onClick={()=>prevStep(page)} 
+                            className="prev"
+                        >
+                                Go Back
+                            </button>
+                        <button 
+                            onClick={()=>nextStep(page)} 
+                            className="next confirm"
+                        >
+                                Confirm
+                        </button>
+                    </div>
+                }
             </div>
         </form>
     );

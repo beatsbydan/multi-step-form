@@ -47,23 +47,9 @@ const Step4 = (props) => {
                         onClick={()=>props.onSubmit(props.page)} 
                         className="next confirm"
                     >
-                            Confifrm
+                            Confirm
                     </button>
                 </div>
-            </div>
-            <div className="formButtons--mobile">
-                <button 
-                    onClick={()=>props.prevStep(props.page)} 
-                    className="prev"
-                >
-                        Go Back
-                    </button>
-                <button 
-                    onClick={()=>props.onSubmit(props.page)} 
-                    className="next confirm"
-                >
-                        Confifrm
-                </button>
             </div>
         </div>
      );
