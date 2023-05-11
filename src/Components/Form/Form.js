@@ -9,7 +9,7 @@ import './Form.css'
 
 const Form = () => {
     const ctx = useContext(PackageContext)
-    const [page,setPage] = useState(2)
+    const [page,setPage] = useState(1)
     const [formInputData, setFormInputData] = useState({
         name: "",
         email: "",
